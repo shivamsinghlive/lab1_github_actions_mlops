@@ -1,5 +1,5 @@
-import sys
 import os
+import sys
 import unittest
 
 # Get the path to the project's root directory
@@ -14,21 +14,27 @@ class TestCalculator(unittest.TestCase):
     def test_fun1(self):
         self.assertEqual(calculator.fun1(2, 3), 5)
         self.assertEqual(calculator.fun1(5, 0), 5)
-        
+
         self.assertEqual(calculator.fun1(-1, 1), 0)
         self.assertEqual(calculator.fun1(-1, -1), -2)
+        with self.assertRaises(ValueError):
+            calculator.fun1("2", 3)
 
     def test_fun2(self):
         self.assertEqual(calculator.fun2(2, 3), -1)
         self.assertEqual(calculator.fun2(5, 0), 5)
         self.assertEqual(calculator.fun2(-1, 1), -2)
         self.assertEqual(calculator.fun2(-1, -1), 0)
+        with self.assertRaises(ValueError):
+            calculator.fun2(2, None)
 
     def test_fun3(self):
         self.assertEqual(calculator.fun3(2, 3), 6)
         self.assertEqual(calculator.fun3(5, 0), 0)
         self.assertEqual(calculator.fun3(-1, 1), -1)
         self.assertEqual(calculator.fun3(-1, -1), 1)
+        with self.assertRaises(ValueError):
+            calculator.fun3([2], 3)
 
     def test_fun4(self):
         self.assertEqual(calculator.fun4(2, 3, 5), 10)
