@@ -36,6 +36,43 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.fun4(-1, -1, -1), -3)
         self.assertEqual(calculator.fun4(-1, -1, 100), 98)
 
+    def test_fun5(self):
+        self.assertEqual(calculator.fun5(6, 3), 2)
+        self.assertEqual(calculator.fun5(5, 2), 2.5)
+        self.assertEqual(calculator.fun5(-4, 2), -2)
+        self.assertEqual(calculator.fun5(0, 7), 0)
+        with self.assertRaises(ZeroDivisionError):
+            calculator.fun5(1, 0)
+        with self.assertRaises(ValueError):
+            calculator.fun5("a", 1)
+
+    def test_fun6(self):
+        self.assertEqual(calculator.fun6(2, 3), 8)
+        self.assertEqual(calculator.fun6(5, 0), 1)
+        self.assertEqual(calculator.fun6(-2, 2), 4)
+        self.assertEqual(calculator.fun6(4, 0.5), 2)
+        with self.assertRaises(ValueError):
+            calculator.fun6(2, "3")
+
+    def test_fun7(self):
+        self.assertEqual(calculator.fun7(10, 3), 1)
+        self.assertEqual(calculator.fun7(9, 3), 0)
+        self.assertEqual(calculator.fun7(-7, 3), 2)
+        with self.assertRaises(ZeroDivisionError):
+            calculator.fun7(5, 0)
+        with self.assertRaises(ValueError):
+            calculator.fun7(None, 2)
+
+    def test_fun8(self):
+        self.assertEqual(calculator.fun8([1, 2, 3]), 2)
+        self.assertEqual(calculator.fun8([5]), 5)
+        self.assertEqual(calculator.fun8([-1, 1]), 0)
+        self.assertEqual(calculator.fun8([1.5, 2.5]), 2)
+        with self.assertRaises(ValueError):
+            calculator.fun8([])
+        with self.assertRaises(ValueError):
+            calculator.fun8([1, "2", 3])
+
 
 
 if __name__ == '__main__':

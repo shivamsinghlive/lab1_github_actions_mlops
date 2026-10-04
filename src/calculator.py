@@ -57,6 +57,73 @@ def fun4(x,y,z):
     total_sum = x + y + z
     return total_sum
 
+def fun5(x, y):
+    """
+    Divides x by y.
+    Args:
+        x (int/float): Numerator.
+        y (int/float): Denominator.
+    Returns:
+        float: Quotient of x and y.
+        Raises:
+        ValueError: If x or y is not a number.
+        ZeroDivisionError: If y is zero.
+    """
+    if not (isinstance(x, (int, float)) and isinstance(y, (int, float))):
+        raise ValueError("Both inputs must be numbers.")
+    if y == 0:
+        raise ZeroDivisionError("Cannot divide by zero.")
+    return x / y
+
+def fun6(x, y):
+    """
+    Raises x to the power of y.
+    Args:
+        x (int/float): Base.
+        y (int/float): Exponent.
+    Returns:
+        int/float: x raised to the power y.
+        Raises:
+        ValueError: If x or y is not a number.
+    """
+    if not (isinstance(x, (int, float)) and isinstance(y, (int, float))):
+        raise ValueError("Both inputs must be numbers.")
+    return x ** y
+
+def fun7(x, y):
+    """
+    Returns the remainder of x divided by y.
+    Args:
+        x (int/float): Dividend.
+        y (int/float): Divisor.
+    Returns:
+        int/float: Remainder of x divided by y.
+        Raises:
+        ValueError: If x or y is not a number.
+        ZeroDivisionError: If y is zero.
+    """
+    if not (isinstance(x, (int, float)) and isinstance(y, (int, float))):
+        raise ValueError("Both inputs must be numbers.")
+    if y == 0:
+        raise ZeroDivisionError("Cannot take modulo by zero.")
+    return x % y
+
+def fun8(numbers):
+    """
+    Computes the average of a list of numbers.
+    Args:
+        numbers (list of int/float): Numbers to average.
+    Returns:
+        float: Mean of the numbers.
+        Raises:
+        ValueError: If the list is empty or contains a non-number.
+    """
+    if not numbers:
+        raise ValueError("List must not be empty.")
+    if not all(isinstance(n, (int, float)) for n in numbers):
+        raise ValueError("All elements must be numbers.")
+    return sum(numbers) / len(numbers)
+
 
 # f1_op = fun1(2,3)
 # f2_op = fun2(2,3)
